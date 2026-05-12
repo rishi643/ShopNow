@@ -46,10 +46,10 @@ function Login({ setToken }) {
                     <form className="flex flex-col items-center gap-5 p-5" onSubmit={handleSubmit}>
                         <h1 className="font-bold text-2xl">Login</h1>
                         <p>Enter Email</p>
-                        <input onChange={(e) => { setemail(e.target.value) }} type="email" name="email" />
+                        <input value={email} className="bg-white border border-black"  onChange={(e) => { setemail(e.target.value) }} type="email" name="email" />
                         <p>Enter password</p>
                         <div className="flex border">
-                            <input onChange={(e) => { setPassword(e.target.value) }} className="bg-white" type={showPassword ? "text" : "password"} name="email" />
+                            <input value={password}  onChange={(e) => { setPassword(e.target.value) }} className="bg-white border border-black" type={showPassword ? "text" : "password"} name="email" />
                             <label onClick={() => setShowPassword(prev => !prev)} name="password" className="cursor-pointer text-center ml-auto mr-10">
                                 {
                                     showPassword ? "Hide" : "Show"
