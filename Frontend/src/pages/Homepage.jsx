@@ -5,6 +5,7 @@ import BestSeller from '../components/BestSeller'
 import OurPolicy from '../components/OurPolicy'
 
 function Homepage() {
+  console.log(import.meta.env.VITE_BackEnd_URL);
   return (
     <>
       <Hero />
