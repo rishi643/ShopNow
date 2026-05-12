@@ -25,6 +25,8 @@ function Product() {
   if (!product) return <p className="text-center mt-10">Product not found</p>;
 
   async function SetCart() {
+
+
     let temp = null;
 
     if (selectedSize == null) {
@@ -36,7 +38,6 @@ function Product() {
 
     if (temp == null) {
 
-      setCart(prev => [...prev, { ...product, ["sizes"]: selectedSize, quantity: 1 }]);
 
       try {
 
@@ -81,7 +82,12 @@ function Product() {
 
 
     }
-    setCartCount(prev => prev + 1);
+
+    if (token != "null") {
+      setCart(prev => [...prev, { ...product, ["sizes"]: selectedSize, quantity: 1 }]);
+      setCartCount(prev => prev + 1);
+    }
+
   }
 
   return (
