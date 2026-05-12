@@ -49,6 +49,7 @@ function Product() {
 
         if (response.data.success) {
           toast.success(response.data.message);
+          setCart(prev => [...prev, { ...product, ["sizes"]: selectedSize, quantity: 1 }]);
         } else {
           toast.error(response.data.message);
         }
@@ -84,7 +85,6 @@ function Product() {
     }
 
     if (token != "null") {
-      setCart(prev => [...prev, { ...product, ["sizes"]: selectedSize, quantity: 1 }]);
       setCartCount(prev => prev + 1);
     }
 
