@@ -11,6 +11,7 @@ function NavBar() {
     let [open, setOpen] = useState(false);
     const { setShowSearch, cart, cartCount, settoken } = useShop();
     const [TotalItems, setTotalItems] = useState(0);
+    const [ProfileClick, setProfileClick] = useState(false);
     const navigate = useNavigate();
 
     function Change() {
@@ -50,10 +51,10 @@ function NavBar() {
 
 
                 {/* Profile Icon */}
-                <div className="w-6 h-6 md:w-11  md:h-11 bg-[url('/Profile-icon.png')] bg-cover bg-center rounded-full cursor-pointer border-2 border-white hover:scale-110 transition duration-200"></div>
+                <div onClick={()=>{setProfileClick(prev=>!prev)}} className="w-6 h-6 md:w-11  md:h-11 bg-[url('/Profile-icon.png')] bg-cover bg-center rounded-full cursor-pointer border-2 border-white hover:scale-110 transition duration-200"></div>
 
                 {/* Dropdown */}
-                <div className="absolute right-0 top-10 hidden group-hover:block w-36 bg-emerald-100 border border-emerald-400 rounded-md shadow-md p-2">
+                <div  className= {`absolute right-0 top-10  ${ProfileClick ? "block" : "hidden"}  group-hover:block w-36 bg-emerald-100 border border-emerald-400 rounded-md shadow-md p-2`}>
 
                     <div onClick={() => navigate("/login")} className="hover:bg-emerald-200 p-2 rounded cursor-pointer">Profile</div>
                     <div onClick={() => navigate("/orders")} className="hover:bg-emerald-200 p-2 rounded cursor-pointer">Orders</div>
