@@ -15,11 +15,11 @@ function BestSeller() {
     return (
         <div>
             <Title text1="Best" text2="Seller" />
-            <div className="md:flex grid grid-cols-2 items-start justify-center gap-4 items-center  w-full md:w-full ml-auto mr-auto  p-5 ">
+            <div className="md:flex grid grid-cols-2 items-start justify-center gap-4  w-full md:w-full ml-auto mr-auto  p-5 ">
                 {
-                    BestSeller.map((item, index) => {
+                 BestSeller.length > 0 ? BestSeller.map((item, index) => {
                         return <ProductItem key={index} id={item._id} image={item.image[0]} name={item.name} price={item.price}/>
-                    })
+                    }) : <p>Loading! Please Wait</p>
                 }
             </div>
         </div>
